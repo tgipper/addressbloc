@@ -61,4 +61,8 @@ class AddressBook
 
         return nil
     end
+
+    def vaporize
+        @entries.clear
+    end
 end

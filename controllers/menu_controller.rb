@@ -14,7 +14,8 @@ class MenuController
         puts "3 - Search for an entry"
         puts "4 - Import entries from a CSV"
         puts "5 - View Entry n"
-        puts "6 - Exit"
+        puts "6 - Delete all entries"
+        puts "7 - Exit"
         print "Enter your selection: "
 
         selection = gets.to_i
@@ -40,7 +41,12 @@ class MenuController
                 system "clear"
                 view_entry_number
                 main_menu
-            when 6
+            when  6
+                system "clear"
+                @address_book.vaporize
+                puts "All entries have been vaporized!"
+                main_menu
+            when 7
                 puts "Goodbye!"
                 exit(0)
             else

@@ -87,7 +87,6 @@ RSpec.describe AddressBook do
 
     describe "#remove_entry" do
         it "removes an entry from the address book" do
-            book = AddressBook.new
             book.add_entry('Michael Scott', '570.244.6472', 'michael.scott@dundermifflin.com')
 
             name = 'Ada Lovelace'
@@ -150,4 +149,14 @@ RSpec.describe AddressBook do
             expect(entry).to be_nil
         end
     end
+
+    describe "#vaporize" do
+        it "deletes all entries in AddressBook" do
+            book.import_from_csv("entries.csv")
+
+            book.vaporize
+            expect(book.entries.size).to eq 0
+        end
+    end
+
 end
